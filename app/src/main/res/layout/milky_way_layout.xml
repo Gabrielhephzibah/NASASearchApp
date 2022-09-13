@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="milkyWayItem"
+            type="com.cherish.nasasearchapp.presentation.milkyway.MilkyWayItem" />
+
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_wrapper"
+        android:layout_width="0dp"
+        app:cardBackgroundColor="@color/white"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_10"
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/dimen_0" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/dimen_0" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="@dimen/dimen_0" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/dimen_0" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@id/guideline2"
+                app:layout_constraintStart_toEndOf="@id/guideline1"
+                app:layout_constraintTop_toBottomOf="@id/guideline3">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    imageUrl="@{milkyWayItem.image}"
+                    android:src="@drawable/ic_launcher_background"
+                    android:scaleType="fitXY"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="@dimen/dimen_12"
+                    android:layout_marginVertical="@dimen/dimen_12"
+                    android:layout_gravity="bottom"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="@dimen/dimen_0"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_sans_bold"
+                        android:text="@{milkyWayItem.title}"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="The Milky Way Center Aglow with Dust" />
+
+                    <TextView
+                        android:id="@+id/gsfc"
+                        android:layout_width="@dimen/dimen_0"
+                        android:layout_height="wrap_content"
+                        tools:text="GSFC"
+                        android:text="@{milkyWayItem.center}"
+                        app:layout_constraintTop_toBottomOf="@id/title"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/nunito_sans"
+                        android:layout_marginTop="10dp"/>
+                    <View
+                        android:id="@+id/line"
+                        android:layout_width="2dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="@dimen/dimen_10"
+                        android:background="@color/white"
+                        app:layout_constraintTop_toTopOf="@id/gsfc"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintBottom_toBottomOf="@id/gsfc"
+                        app:layout_constraintStart_toEndOf="@id/gsfc"/>
+                    <TextView
+                        android:layout_width="@dimen/dimen_0"
+                        android:layout_height="wrap_content"
+                        tools:text="2015-03-21"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:text="@{milkyWayItem.date}"
+                        android:fontFamily="@font/nunito_sans"
+                        android:layout_marginStart="@dimen/dimen_10"
+                        app:layout_constraintTop_toTopOf="@id/gsfc"
+                        app:layout_constraintBottom_toBottomOf="@id/gsfc"
+                        app:layout_constraintStart_toEndOf="@+id/line"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

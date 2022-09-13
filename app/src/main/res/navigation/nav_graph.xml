@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/milkyWayFragment">
+
+    <fragment
+        android:id="@+id/milkyWayFragment"
+        android:name="com.cherish.nasasearchapp.presentation.milkyway.MilkyWayFragment"
+        android:label="fragment_milky_way"
+        tools:layout="@layout/fragment_milky_way" >
+        <action
+            android:id="@+id/action_milkyWayFragment_to_milkyWayDetailFragment"
+            app:destination="@id/milkyWayDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/milkyWayDetailFragment"
+        android:name="com.cherish.nasasearchapp.presentation.milkywaydetails.MilkyWayDetailFragment"
+        android:label="fragment_milky_way_detail"
+        tools:layout="@layout/fragment_milky_way_detail" >
+        <argument
+            android:name="milkyWayItem"
+            app:argType="com.cherish.nasasearchapp.presentation.milkyway.MilkyWayItem"
+            app:nullable="true"
+            android:defaultValue="@null"
+            />
+    </fragment>
+</navigation>

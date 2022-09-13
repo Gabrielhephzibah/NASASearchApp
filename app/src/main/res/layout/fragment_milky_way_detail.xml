@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.cherish.nasasearchapp.presentation.milkywaydetails.MilkyWayDetailViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/dimen_0" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/dimen_0" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="@dimen/dimen_0" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/dimen_0" />
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@id/guideline2"
+                app:layout_constraintStart_toEndOf="@id/guideline1"
+                app:layout_constraintTop_toBottomOf="@id/guideline3" >
+                <ImageView
+                    android:id="@+id/mImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    imageUrl="@{viewmodel.image}"
+                    android:src="@drawable/ic_launcher_background"
+                    android:scaleType="fitXY"/>
+                <ImageView
+                    android:id="@+id/onBackClick"
+                    android:layout_margin="20dp"
+                    android:layout_width="35dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_back_arrow"
+                    />
+            </FrameLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/frameLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginHorizontal="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constrainedHeight="true"
+                android:layout_marginBottom="@dimen/dimen_10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+
+                <TextView
+                    android:layout_marginTop="30dp"
+                    android:id="@+id/title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@{viewmodel.title}"
+                    tools:text="Hubble Observes One-of-a-Kind Star Nickednamed 'Nasty'"
+                    android:textColor="#191919"
+                    android:lineSpacingExtra="5dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_marginTop="25dp"
+                    android:id="@+id/center"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/title"
+                    android:text="Center:"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-black"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/mCenter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_sans"
+                    android:paddingStart="@dimen/dimen_5"
+                    android:paddingEnd="@dimen/dimen_5"
+                    android:text="@{viewmodel.center}"
+                    android:textColor="#FF000000"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@id/center"
+                    app:layout_constraintStart_toEndOf="@+id/center"
+                    app:layout_constraintTop_toTopOf="@id/center"
+                    tools:text="GSFC" />
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="0dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-black"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/center"
+                    android:text="Date Created:"
+                    app:layout_constraintStart_toStartOf="parent"/>
+                <TextView
+                    android:id="@+id/mDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@id/date"
+                    tools:text="2015-03-21"
+                    android:text="@{viewmodel.date}"
+                    android:textColor="#FF000000"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:paddingStart="@dimen/dimen_5"
+                    android:paddingEnd="@dimen/dimen_5"
+                    app:layout_constraintBottom_toBottomOf="@id/date"
+                    app:layout_constraintStart_toEndOf="@+id/date" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="@dimen/dimen_0"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="40dp"
+                    android:autoLink="web"
+                    android:fontFamily="@font/tienne"
+                    android:scrollbars="vertical"
+                    android:text="@{viewmodel.description}"
+                    android:textColor="#FF000000"
+                    android:textColorLink="@color/purple_700"
+                    android:textSize="15sp"
+                    app:layout_constrainedHeight="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/date"
+                    tools:text="DESCRIPTION HERE" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
