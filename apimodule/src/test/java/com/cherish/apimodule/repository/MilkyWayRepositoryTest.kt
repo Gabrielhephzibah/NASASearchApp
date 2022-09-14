@@ -1,16 +1,16 @@
 package com.cherish.apimodule.repository
 
 import app.cash.turbine.test
-import com.cherish.apimodule.utils.MainCoroutineScopeRule
 import com.cherish.apimodule.common.Resource
 import com.cherish.apimodule.data.remote.MilkyWayApi
 import com.cherish.apimodule.data.repository.MilkyWayRepositoryImpl
-import com.cherish.apimodule.domain.model.*
-import com.cherish.apimodule.domain.model.Collection
+import com.cherish.apimodule.utils.MainCoroutineScopeRule
+import com.cherish.apimodule.utils.MilkyWayTest
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestCoroutineDispatcher
+import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -35,10 +35,16 @@ class MilkyWayRepositoryTest {
         milkyWayRepository = MilkyWayRepositoryImpl(milkyWayApi, dispatcher)
     }
 
-
     @Test
     fun `test getMilkyWayImages_onLoading_false`() = runBlocking {
-        given(milkyWayApi.getMilkyWayImages(any(), any(), any(), any())).willReturn(response)
+        given(
+            milkyWayApi.getMilkyWayImages(
+                any(),
+                any(),
+                any(),
+                any()
+            )
+        ).willReturn(MilkyWayTest.response)
 
         milkyWayRepository.getMilkyWayImages().test {
             assertThat(Resource.Loading(false)).isEqualTo(awaitItem())
@@ -48,18 +54,32 @@ class MilkyWayRepositoryTest {
 
     @Test
     fun `get getMilkyWayImages_onSuccess`() = runBlocking {
-        given(milkyWayApi.getMilkyWayImages(any(), any(), any(), any())).willReturn(response)
+        given(
+            milkyWayApi.getMilkyWayImages(
+                any(),
+                any(),
+                any(),
+                any()
+            )
+        ).willReturn(MilkyWayTest.response)
 
         milkyWayRepository.getMilkyWayImages().test {
             assertThat(Resource.Loading(false)).isEqualTo(awaitItem())
-            assertThat(Resource.Success(response)).isEqualTo(awaitItem())
+            assertThat(Resource.Success(MilkyWayTest.response)).isEqualTo(awaitItem())
             cancelAndIgnoreRemainingEvents()
         }
     }
 
     @Test(expected = Throwable::class)
     fun `test getMilkyWayImages_onError`() = runBlocking {
-        given(milkyWayApi.getMilkyWayImages(any(), any(), any(), any())).willThrow(Throwable())
+        given(
+            milkyWayApi.getMilkyWayImages(
+                any(),
+                any(),
+                any(),
+                any()
+            )
+        ).willThrow(Throwable())
 
         milkyWayRepository.getMilkyWayImages().test {
             assertThat(Resource.Loading(false)).isEqualTo(awaitItem())
@@ -69,25 +89,4 @@ class MilkyWayRepositoryTest {
 
     }
 
-    companion object {
-        val response = MilkyWay(
-            Collection(
-                listOf(
-                    Item(
-                        listOf(
-                            Data(
-                                "center",
-                                "datecreated",
-                                "Description",
-                                "MediaType",
-                                "NasaId",
-                                "Title"
-                            )
-                        ),
-                        listOf(Link("Image"))
-                    )
-                )
-            )
-        )
-    }
 }

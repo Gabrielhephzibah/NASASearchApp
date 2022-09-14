@@ -18,7 +18,7 @@ class MockServerDispatcher {
 
     internal inner class ErrorDispatcher : Dispatcher() {
         override fun dispatch(request: RecordedRequest): MockResponse {
-            return MockResponse().setResponseCode(400)
+            return MockResponse().setResponseCode(400).setBody(getJsonContent("response_error.json"))
         }
     }
 }

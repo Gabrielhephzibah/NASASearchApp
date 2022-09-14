@@ -61,4 +61,5 @@ open class NetworkModule {
     @IODispatcher
     @Provides
     fun providesIODispatcher(): CoroutineDispatcher = Dispatchers.IO
+
 }
