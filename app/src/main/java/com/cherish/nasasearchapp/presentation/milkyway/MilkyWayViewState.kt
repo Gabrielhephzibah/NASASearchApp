@@ -7,28 +7,24 @@ import com.cherish.nasasearchapp.common.BaseViewState
 import retrofit2.HttpException
 
 class MilkyWayViewState<T>(
-    private val loadState: Resource<T>
-): BaseViewState() {
-    fun getProgressBarVisibility() = getViewVisibility(isVisible = loadState is Resource.Loading)
+    private val viewState: Resource<T>
+) : BaseViewState() {
+    fun getProgressBarVisibility() = getViewVisibility(isVisible = viewState is Resource.Loading)
 
-    fun getRecyclerViewVisibility() = getViewVisibility(isVisible = loadState !is Resource.Loading)
+    fun getRecyclerViewVisibility() = getViewVisibility(isVisible = viewState !is Resource.Loading)
 
-    fun getErrorVisibility() = getViewVisibility(isVisible = loadState is Resource.Error)
+    fun getErrorVisibility() = getViewVisibility(isVisible = viewState is Resource.Error)
 
-    //fun getEmptyListVisibility() = getViewVisibility()
-
-    fun getErrorMessage(context: Context)  = if (loadState is Resource.Error) {
-
-        if (loadState.error is HttpException) {
-            when ((loadState.error as HttpException).code()) {
-                500, 502, 503, 504 -> "Server Error, please try again later"
-                404 -> "The request resource does not exist"
-                400 -> "Bad Request, Please try again later"
+    fun getErrorMessage(context: Context) = if (viewState is Resource.Error) {
+        if (viewState.error is HttpException) {
+            when ((viewState.error as HttpException).code()) {
+                500, 502, 503, 504 -> context.getString(R.string.server_error)
+                404 -> context.getString(R.string.not_found)
+                400 -> context.getString(R.string.bad_request)
                 else -> context.getString(R.string.error)
             }
         } else context.getString(R.string.error)
-
-}else{
-    ""
-}
+    } else {
+        ""
+    }
 }

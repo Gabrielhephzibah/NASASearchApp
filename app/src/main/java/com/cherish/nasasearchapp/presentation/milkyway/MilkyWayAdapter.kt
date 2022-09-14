@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.cherish.nasasearchapp.databinding.MilkyWayLayoutBinding
 
-class MilkyWayAdapter(private val onItemClick: (MilkyWayItem?) -> Unit):
-    ListAdapter<MilkyWayItem, MilkyWayViewHolder>(MilkyWayComparator){
+class MilkyWayAdapter(private val onItemClick: (MilkyWayItem?) -> Unit) :
+    ListAdapter<MilkyWayItem, MilkyWayViewHolder>(MilkyWayComparator) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MilkyWayViewHolder {
         val binding =
@@ -25,7 +25,6 @@ class MilkyWayAdapter(private val onItemClick: (MilkyWayItem?) -> Unit):
         getItem(position)?.let { postListItem -> holder.bind(postListItem) }
     }
 
-
     object MilkyWayComparator : DiffUtil.ItemCallback<MilkyWayItem>() {
         override fun areItemsTheSame(
             oldItem: MilkyWayItem,
@@ -41,6 +40,5 @@ class MilkyWayAdapter(private val onItemClick: (MilkyWayItem?) -> Unit):
             return oldItem == newItem
         }
     }
-
 
 }

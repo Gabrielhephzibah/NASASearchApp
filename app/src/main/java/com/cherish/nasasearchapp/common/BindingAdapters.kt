@@ -4,6 +4,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.cherish.nasasearchapp.common.extensions.convertDate
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -15,10 +16,7 @@ fun ImageView.loadImage(url: String?) {
         .load(url)
         .into(this)
 }
-//@BindingAdapter("date")
-//fun TextView.convertDate(): String {
-//    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.ENGLISH)
-//    val outputFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd")
-//    val localDate = LocalDate.parse(this.toString(), formatter)
-//    return outputFormat.format(localDate)
-//}
+@BindingAdapter("date")
+fun TextView.changeDate(date: String){
+    this.text = date.convertDate()
+}

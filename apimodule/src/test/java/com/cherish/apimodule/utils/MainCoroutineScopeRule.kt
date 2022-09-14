@@ -1,4 +1,4 @@
-package com.cherish.apimodule
+package com.cherish.apimodule.utils
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

@@ -1,4 +1,4 @@
-package com.cherish.nasasearchapp.common.extension
+package com.cherish.nasasearchapp.common.extensions
 
 import androidx.databinding.ViewDataBinding
 

@@ -23,6 +23,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 open class NetworkModule {
+
     open var baseUrl = BuildConfig.BASE_URL
 
     @Provides

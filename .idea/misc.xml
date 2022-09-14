@@ -6,9 +6,9 @@
         <entry key="app/src/main/res/drawable-v24/ic_back_arrow.xml" value="0.1295" />
         <entry key="app/src/main/res/font/tienne.xml" value="0.23743589743589744" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.10258358662613981" />
-        <entry key="app/src/main/res/layout/fragment_milky_way.xml" value="0.19229763691910862" />
-        <entry key="app/src/main/res/layout/fragment_milky_way_detail.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/milky_way_layout.xml" value="0.17205657958984377" />
+        <entry key="app/src/main/res/layout/fragment_milky_way.xml" value="0.45168914794921877" />
+        <entry key="app/src/main/res/layout/fragment_milky_way_detail.xml" value="0.27024688720703127" />
+        <entry key="app/src/main/res/layout/milky_way_layout.xml" value="0.38321167883211676" />
         <entry key="app/src/main/res/xml/network_security_config.xml" value="0.125" />
       </map>
     </option>

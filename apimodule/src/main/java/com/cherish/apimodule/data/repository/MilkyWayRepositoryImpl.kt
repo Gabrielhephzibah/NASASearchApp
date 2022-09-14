@@ -7,10 +7,7 @@ import com.cherish.apimodule.data.remote.MilkyWayApi
 import com.cherish.apimodule.domain.model.MilkyWay
 import com.cherish.apimodule.domain.repository.MilkyWayRepository
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 import javax.inject.Singleton
 

@@ -2,4 +2,9 @@
     <string name="app_name">NASASearchApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="error">An Error occurred, please try again later</string>
+    <string name="server_error">Server Error, please try again later</string>
+    <string name="not_found">The request resource does not exist</string>
+    <string name="bad_request">Bad Request, Please try again later</string>
+    <string name="center">Center:</string>
+    <string name="date_created">Date Created:</string>
 </resources>

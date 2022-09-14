@@ -13,7 +13,6 @@ import androidx.test.core.app.ApplicationProvider
 import com.cherish.nasasearchapp.HiltTestActivity
 
 
-
 inline fun <reified T : Fragment> launchFragmentInHiltContainer(
     fragmentArgs: Bundle? = null,
     @StyleRes themeResId: Int = R.style.FragmentScenarioEmptyFragmentActivityTheme,
@@ -25,7 +24,10 @@ inline fun <reified T : Fragment> launchFragmentInHiltContainer(
             ApplicationProvider.getApplicationContext(),
             HiltTestActivity::class.java
         )
-    ).putExtra( "androidx.fragment.app.testing.FragmentScenario.EmptyFragmentActivity.THEME_EXTRAS_BUNDLE_KEY", themeResId)
+    ).putExtra(
+        "androidx.fragment.app.testing.FragmentScenario.EmptyFragmentActivity.THEME_EXTRAS_BUNDLE_KEY",
+        themeResId
+    )
 
     ActivityScenario.launch<HiltTestActivity>(startActivityIntent).onActivity { activity ->
         fragmentFactory?.let {

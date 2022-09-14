@@ -13,8 +13,9 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MilkyWayDetailFragment : Fragment() {
-    private lateinit var binding : FragmentMilkyWayDetailBinding
-    private val viewModel: MilkyWayDetailViewModel by viewModels()
+    private lateinit var binding: FragmentMilkyWayDetailBinding
+    private val milkyWayDetailViewModel: MilkyWayDetailViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -25,7 +26,7 @@ class MilkyWayDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMilkyWayDetailBinding.inflate(inflater, container, false)
-        binding.viewmodel = viewModel
+        binding.viewModel = milkyWayDetailViewModel
         return binding.root
     }
 
@@ -35,7 +36,7 @@ class MilkyWayDetailFragment : Fragment() {
         onBackClick()
     }
 
-    private fun onBackClick(){
+    private fun onBackClick() {
         binding.onBackClick.setOnClickListener {
             Navigation.findNavController(it).popBackStack()
         }

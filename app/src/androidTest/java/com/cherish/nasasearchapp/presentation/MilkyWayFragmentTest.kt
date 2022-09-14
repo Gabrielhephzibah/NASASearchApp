@@ -1,4 +1,4 @@
-package com.cherish.nasasearchapp
+package com.cherish.nasasearchapp.presentation
 
 import androidx.navigation.Navigation
 import androidx.navigation.testing.TestNavHostController
@@ -10,6 +10,7 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.cherish.nasasearchapp.R
 import com.cherish.nasasearchapp.presentation.milkyway.MilkyWayFragment
 import com.cherish.nasasearchapp.utils.MockServerDispatcher
 import com.cherish.nasasearchapp.utils.launchFragmentInHiltContainer
@@ -40,9 +41,7 @@ class MilkyWayFragmentTest {
 
     private lateinit var mockWebServer: MockWebServer
 
-
     private val navController = TestNavHostController(ApplicationProvider.getApplicationContext())
-
 
     @Before
     fun setUp() {
@@ -64,9 +63,8 @@ class MilkyWayFragmentTest {
         }
     }
 
-
     @Test
-    fun givenMilkyWayItemIsClickedThenNavigateToMilkyWayDetailScreen() {
+    fun givenMilkyWayItemIsClickedThenNavigateToMilkyWayDetailScreenAndPassArguments() {
 
         launchMilkyWayFragment()
 
@@ -83,7 +81,6 @@ class MilkyWayFragmentTest {
         val currentDestinationArgs = navController.backStack.last().arguments
 
         assertThat(currentDestinationArgs).isNotNull()
-
     }
 
     @After

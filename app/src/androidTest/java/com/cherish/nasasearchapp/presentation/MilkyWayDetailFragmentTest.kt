@@ -1,28 +1,18 @@
-package com.cherish.nasasearchapp
+package com.cherish.nasasearchapp.presentation
 
 import androidx.navigation.Navigation
 import androidx.navigation.testing.TestNavHostController
-import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.espresso.Espresso
-import androidx.test.espresso.Espresso.*
+import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.IdlingRegistry
-import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.contrib.RecyclerViewActions
-import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.cherish.nasasearchapp.presentation.milkyway.MilkyWayFragment
-import com.cherish.nasasearchapp.presentation.milkyway.MilkyWayItem
+import com.cherish.nasasearchapp.R
 import com.cherish.nasasearchapp.presentation.milkywaydetails.MilkyWayDetailFragment
-import com.cherish.nasasearchapp.presentation.milkywaydetails.MilkyWayDetailFragmentArgs
-import com.cherish.nasasearchapp.utils.MockServerDispatcher
 import com.cherish.nasasearchapp.utils.launchFragmentInHiltContainer
-import com.google.common.truth.Truth
 import com.google.common.truth.Truth.assertThat
 import com.jakewharton.espresso.OkHttp3IdlingResource
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -41,6 +31,7 @@ import javax.inject.Inject
 @HiltAndroidTest
 @RunWith(AndroidJUnit4::class)
 class MilkyWayDetailFragmentTest {
+
     @get:Rule
     val hiltRule = HiltAndroidRule(this)
 
@@ -48,7 +39,6 @@ class MilkyWayDetailFragmentTest {
     lateinit var okHttp: OkHttpClient
 
     private lateinit var mockWebServer: MockWebServer
-
 
     private val navController = TestNavHostController(ApplicationProvider.getApplicationContext())
 
@@ -74,7 +64,7 @@ class MilkyWayDetailFragmentTest {
     }
 
     @Test
-    fun givenMilkyWayDetailIsDisplayThenDetailsAreDisplayAndVisible(){
+    fun givenMilkyWayDetailScreenIsDisplayedThenDetailsAreVisible() {
 
         launchMilkyWayDetailFragment()
 
@@ -86,7 +76,8 @@ class MilkyWayDetailFragmentTest {
     }
 
     @Test
-    fun givenBackArrowIsClickedThenDisplayPreviousScreen(){
+    fun givenBackArrowIsClickedThenDisplayPreviousScreen() {
+
         launchMilkyWayDetailFragment()
 
         onView(withId(R.id.onBackClick)).perform(click())

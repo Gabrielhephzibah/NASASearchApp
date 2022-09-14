@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setBinding()
     }
+
     private fun setBinding() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
     }

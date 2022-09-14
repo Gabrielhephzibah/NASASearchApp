@@ -1,6 +1,6 @@
 package com.cherish.apimodule.data.remote
 
-import com.cherish.apimodule.data.repository.MilkyWay
+import com.cherish.apimodule.domain.model.MilkyWay
 import retrofit2.http.GET
 import retrofit2.http.Query
 
