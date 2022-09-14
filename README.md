@@ -7,7 +7,7 @@
 # Major Features
 * **Multi-module**: The app contains two modules that are reusable and can be used by other apps
 * **Hilt**: The app uses Hilt for dependency injection to create dependencies and improve code reusability
-* **Clean architecture**: The app follows a clean architectural pattern to improve code decoupling
+* **Clean architecture**: The app follows a clean architectural pattern to improve code decoupling and testing
 * **Data Binding**: The app uses data binding to bind views and layouts to reduce boilerplate code
 * **Navigation Component**: The app uses a navigation component to connect between fragments
 * **Retrofit**: The app uses retrofit to create network HTTP request and response
