@@ -42,7 +42,7 @@ The app has the following structure
 2. Clone or fork the repository by running the command below on your terminal
 
 ```
-https://github.com/Gabrielhephzibah/NASASearchApp.git
+git clone https://github.com/Gabrielhephzibah/NASASearchApp.git
 
 ```
        
