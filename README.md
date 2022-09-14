@@ -21,7 +21,7 @@
 
 The app has the following structure
 * Module
-  * **apimodule**: This module contains the code necessary for creating the Milky Way images request
+  * **apimodule**: This module contains the code necessary for creating the Milky Way images API request
      * common: This package is responsible for files that are used across the module
      * data: This package contains files related to data
      * di: This package contains files responsible for dependencies injection
