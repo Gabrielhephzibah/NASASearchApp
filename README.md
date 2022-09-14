@@ -30,7 +30,7 @@ The app has the following structure
   * **app**: This module is responsible for the UI implementation of the application
      * common: This package is responsible for files that are used across the module
      * presentation: This package is responsible for the UI logic and implementation
-     * androidTest: This package is responsible for UI test of fragments and navigations
+     * androidTest: This package is responsible for fragments and navigations UI test
 *Gradle Scripts
    * These scripts are responsible for dependencies and plugins necessary for the project
 
