@@ -26,7 +26,7 @@ The app has the following structure
      * data: This package contains files related to data
      * di: This package contains files responsible for dependencies injection
      * domain: This package is responsible for complex  and simple business logic that is reusable
-     * unitTest: This package is responsible for unit test for Mikly Images Api implementation
+     * unitTest: This package is responsible for unit test for Milky Way Images Api implementation
   * **app**: This module is responsible for the UI implementation of the application
      * common: This package is responsible for files that are used across the module
      * presentation: This package is responsible for the UI logic and implementation
