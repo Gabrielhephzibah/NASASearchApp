@@ -13,8 +13,8 @@
 * **Retrofit**: The app uses retrofit to create network HTTP request and response
 * **Kotlin flows and coroutine**: The app uses flow to perform asynchronous tasks
 * **Glide**: The app uses glide for image loading
-* **Unit Test**: The app uses Mockito and Turbine for unit testing and Truth for the assertion
-* **UItest**: The app uses espresso for UI test and Truth for assertion
+* **Unit test**: The app uses Mockito and Turbine for unit testing and Truth for the assertion
+* **UI test**: The app uses espresso for UI test and Truth for assertion
 
 
 # Project Structure
